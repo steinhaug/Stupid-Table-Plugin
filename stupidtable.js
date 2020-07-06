@@ -93,7 +93,7 @@
     }
 
     $this_th.data("sort-dir", sort_info.sort_dir);
-    $table.trigger("beforetablesort", {column: sort_info.th_index, direction: sort_info.sort_dir, $th: $this_th});
+    $table.trigger("beforetablesort", {realColumn: calculateTHIndex(sort_info), column: sort_info.th_index, direction: sort_info.sort_dir, $th: $this_th});
 
     // More reliable method of forcing a redraw
     $table.css("display");
