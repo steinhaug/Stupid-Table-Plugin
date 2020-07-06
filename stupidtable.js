@@ -87,6 +87,11 @@
     sort_info.th_index = calculateTHIndex(sort_info);
     sort_info.sort_dir = calculateSortDir(force_direction, sort_info);
 
+    if( $this_th.data("sort-column") ){
+        var newindex = get_th($table, $this_th.data("sort-column"));
+        sort_info.th_index =  newindex.index;
+    }
+
     $this_th.data("sort-dir", sort_info.sort_dir);
     $table.trigger("beforetablesort", {column: sort_info.th_index, direction: sort_info.sort_dir, $th: $this_th});
 
